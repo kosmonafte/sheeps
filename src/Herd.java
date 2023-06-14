@@ -1,26 +1,53 @@
+import java.util.ArrayList;
 public class Herd {
-    private Ram rams[];
+    //private Ram rams[];
+    private ArrayList<Ram> ramsList;
+    private int size;
     Herd() {
-        this.rams = new Ram[10];
-        for (int i = 0; i < rams.length; i++) {
-            this.rams[i] = new Ram();
-            this.rams[i].setName(String.valueOf((char)((int)(Math.random()*1000))));
-            this.rams[i].setWeight((int)(Math.random()*100));
-            this.rams[i].setWool((int)(Math.random()*1000));
+        this.ramsList = new ArrayList<Ram>();
+        Ram baran = new Ram();
+        ramsList.add(baran);
+        Ram baranTwo = new Ram("Barash");
+        ramsList.add(baranTwo);
+        Ram baranThree = new Ram("Barashik");
+        ramsList.add(baranThree);
+        this.size = 3;
+    }
+    Ram getRam(int index) {
+        return ramsList.get(index);
+    }
+    int getSize() {
+        return this.size;
+    }
+    String getInfo() {
+        String info = new String();
+        for (int i = 0; i < this.size; i++) {
+            info = info + this.ramsList.get(i).getInfo() + "\n";
         }
-        //System.out.println("Я отработал");
+        return info;
+    }
+    void addRam() {
+        this.ramsList.add(new Ram());
+        this.size++;
+    }
+    Ram outRam(int index) {
+        Ram ram = this.ramsList.get(index);
+        this.ramsList.remove(index);
+        this.size--;
+        return ram;
+    }
+    void oneDay() {
+        for (int i = 0; i < this.size; i++) {
+            this.ramsList.get(i).oneDay();
+        }
     }
 //    Herd(Ram rams[]) {
 //        this.rams = rams;
 //    }
-    Ram getRam(int index) {
-        //System.out.println("Я отработал");
-        return this.rams[index];
-    }
-    int getLength() {
-        return rams.length;
-    }
-    void oneDay() {
-
-    }
+//    int getLength() {
+//        return rams.length;
+//    }
+//    void oneDay() {
+//
+//    }
 }
