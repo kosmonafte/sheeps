@@ -5,13 +5,13 @@ public class Ram {
     private int wool;
     Ram(){
         this.name = "Baran";
-        this.weight = 5;
+        this.weight = 90;
         this.days = 0;
         this.wool = 1000;
     }
     Ram(String name) {
         this.name = name;
-        this.weight = 5;
+        this.weight = 90;
         this.days = 0;
         this.wool = 1000;
     }
@@ -61,11 +61,14 @@ public class Ram {
         this.weight += 1;
         this.wool += 100;
         this.days += 1;
-        System.out.println("Привет, я баран " + this.name + " я прожил 1 день ;)");
+        //System.out.println("Привет, я баран " + this.name + " я прожил 1 день ;)");
     }
     String getInfo() {
         String info = new String();
         info = this.name + "\t" + this.days + "\t" + this.weight + "\t" + this.wool;
         return info;
+    }
+    void omNomOneDay(){
+        this.weight -= 30;
     }
 }

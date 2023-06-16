@@ -21,8 +21,9 @@ public class Herd {
     }
     String getInfo() {
         String info = new String();
+        info = "В стаде сейчас " + this.size + " баранов. \n";
         for (int i = 0; i < this.size; i++) {
-            info = info + this.ramsList.get(i).getInfo() + "\n";
+            info += this.ramsList.get(i).getInfo() + "\n";
         }
         return info;
     }
